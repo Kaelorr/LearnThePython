@@ -25,6 +25,9 @@ if __name__ == "__main__":
     # Iterate
     for key, value in student.items():
         print(key, "->", value)
+    # del student["age"]  # also works
+    del student["phone"]  # also works
+    print("After del:", student)    # also works
 
     # Dictionary comprehension
     squares = {n: n * n for n in range(1, 6)}
@@ -82,3 +85,15 @@ if __name__ == "__main__":
     for o in orders:
         totals[o["item"]] = totals.get(o["item"], 0) + o["qty"] * o["price"]
     print("Item totals:", totals)
+
+
+
+
+dict2 = {"name": "Mita", "age": 22, "city": "Dhaka"}
+
+for key in dict2:
+    print(key, "->", dict2[key])
+
+for key, value in dict2.items():
+    print(key, "->", value) 
+    
