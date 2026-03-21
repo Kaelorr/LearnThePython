@@ -1,0 +1,227 @@
+'''This file demonstrates importing standard Python modules. Definitions of functions for the importing standard modules practice. '''
+
+''' import math - provides mathematical functions like sqrt, sin, cos, etc.
+import random - provides functions for generating random numbers and making random choices.
+import os - provides functions for interacting with the operating system, such as file and directory manipulation.
+import sys - provides access to system-specific parameters and functions, such as command-line arguments and the Python path.
+import datetime - provides classes for manipulating dates and times.
+import time - provides functions for working with time, such as sleep and time.
+import re - provides functions for working with regular expressions.
+import collections - provides specialized container datatypes like namedtuple, deque, Counter, etc.
+import json - provides functions for working with JSON data, such as parsing and generating JSON.
+import csv - provides functions for working with CSV files, such as reading and writing CSV data.
+import urllib.request - provides functions for making HTTP requests and working with URLs.
+import collections - provides specialized container datatypes like namedtuple, deque, Counter, etc.
+import itertools - provides functions for creating iterators for efficient looping, such as product, permutations, combinations, etc.
+import functools - provides functions for higher-order programming, such as reduce, partial, lru_cache, etc.
+import operator - provides functions for performing common operations, such as addition, subtraction, multiplication, etc.
+import threading - provides functions for working with threads, such as creating and managing threads.
+import multiprocessing - provides functions for working with processes, such as creating and managing processes.
+import asyncio - provides functions for writing asynchronous code, such as async/await, event loops, etc.
+import socket - provides functions for working with network sockets, such as creating and managing sockets, sending and receiving data, etc.
+import logging - provides functions for logging messages, such as configuring loggers, handlers, formatters, etc.
+import unittest - provides functions for writing and running unit tests, such as test cases, test suites, test runners, etc.
+import argparse - provides functions for parsing command-line arguments, such as defining arguments, parsing arguments, etc.
+import configparser - provides functions for working with configuration files, such as reading and writing configuration data.
+import hashlib - provides functions for working with hash functions, such as md5, sha1, sha256, etc.
+import hmac - provides functions for working with keyed-hash message authentication codes (HMAC), such as creating and verifying HMACs.
+import secrets - provides functions for generating secure random numbers and tokens, such as token_bytes, token_hex, etc.
+import uuid - provides functions for working with universally unique identifiers (UUIDs), such as uuid4, uuid5, etc.
+import base64 - provides functions for encoding and decoding data in base64, such as b64encode, b64decode, etc.
+import zlib - provides functions for compressing and decompressing data, such as compress, decompress, etc.
+import gzip - provides functions for working with gzip files, such as open, compress, decompress, etc.
+import zipfile - provides functions for working with ZIP files, such as ZipFile, is_zipfile, etc.
+import tarfile - provides functions for working with tar files, such as TarFile, is_tarfile, etc.
+import shutil - provides functions for high-level file operations, such as copy, move, delete, etc.
+import subprocess - provides functions for running external commands and processes, such as run, Popen, etc.
+import webbrowser - provides functions for working with web browsers, such as open, open_new, etc.
+import smtplib - provides functions for sending email using the Simple Mail Transfer Protocol (SMTP), such as SMTP, sendmail, etc.
+import imaplib - provides functions for working with the Internet Message Access Protocol (IMAP), such as IMAP4, IMAP4_SSL, etc.
+import poplib - provides functions for working with the Post Office Protocol (POP), such as POP3, POP3_SSL, etc.
+import email - provides functions for working with email messages, such as message, parser, etc.
+import ftplib - provides functions for working with the File Transfer Protocol (FTP), such as FTP, FTP_TLS, etc.
+import paramiko - provides functions for working with the SSH protocol, such as SSHClient, SFTPClient, etc.
+import psycopg2 - provides functions for working with PostgreSQL databases, such as connect, cursor, etc.
+import mysql.connector - provides functions for working with MySQL databases, such as connect, cursor, etc.
+import sqlite3 - provides functions for working with SQLite databases, such as connect, cursor, etc.
+import redis - provides functions for working with Redis databases, such as connect, set, get, etc.
+import pymongo - provides functions for working with MongoDB databases, such as connect, database, etc.
+import sqlalchemy - provides functions for working with SQL databases, such as create_engine, sessionmaker, etc.
+import requests - provides functions for making HTTP requests, such as get, post, put, delete, etc.
+import beautifulsoup4 - provides functions for parsing HTML and XML documents, such as BeautifulSoup, etc.
+import lxml - provides functions for parsing XML and HTML documents, such as etree, etc.
+import Pillow - provides functions for working with images, such as Image, etc.
+import PyPDF2 - provides functions for working with PDF files, such as PdfFileReader, etc.
+import openpyxl - provides functions for working with Excel files, such as load_workbook, etc.
+import matplotlib - provides functions for creating visualizations and plots, such as pyplot, etc.
+import seaborn - provides functions for creating statistical visualizations, such as heatmap, pairplot, etc.
+import numpy - provides functions for working with arrays and numerical data, such as array, mean, median, etc.
+import pandas - provides functions for working with data frames and tabular data, such as DataFrame, read_csv, etc.
+import scipy - provides functions for scientific computing and technical computing, such as optimize, stats, etc.
+import scikit-learn - provides functions for machine learning and data mining, such as train_test_split, RandomForestClassifier, etc.
+import tensorflow - provides functions for machine learning and deep learning, such as keras, etc.
+import keras - provides functions for building and training neural networks, such as Sequential, Dense, etc.
+import pytorch - provides functions for machine learning and deep learning, such as torch, nn, etc.
+import xgboost - provides functions for gradient boosting and machine learning, such as XGBClassifier, etc.
+import lightgbm - provides functions for gradient boosting and machine learning, such as LGBMClassifier, etc.
+import catboost - provides functions for gradient boosting and machine learning, such as CatBoostClassifier, etc.
+import statsmodels - provides functions for statistical modeling and econometrics, such as OLS, etc.
+import networkx - provides functions for working with graphs and networks, such as Graph, etc.
+import geopandas - provides functions for working with geospatial data, such as GeoDataFrame, etc.
+import folium - provides functions for creating interactive maps, such as Map, Marker, etc.
+import plotly - provides functions for creating interactive visualizations, such as express, graph_objects, etc.
+import sellenium - provides functions for automating web browsers, such as WebDriver, etc.
+import scrapy - provides functions for web scraping and crawling, such as Spider, etc.
+import flask - provides functions for building web applications, such as Flask, etc.
+import django - provides functions for building web applications, such as Django, etc.    
+import fastapi - provides functions for building web APIs, such as FastAPI, etc.
+import bottle - provides functions for building web applications, such as Bottle, etc.
+import tornado - provides functions for building web applications and handling asynchronous networking, such as Application, etc.
+import aiohttp - provides functions for making asynchronous HTTP requests, such as ClientSession, etc.
+'''
+
+
+''' important modules for eithical hacking
+import nmap - provides functions for network scanning and enumeration, such as PortScanner, etc.
+import scapy - provides functions for packet manipulation and network analysis, such as sniff, send, etc.
+import paramiko - provides functions for working with the SSH protocol, such as SSHClient, SFTPClient, etc.
+import requests - provides functions for making HTTP requests, such as get, post, put, delete, etc.
+import beautifulsoup4 - provides functions for parsing HTML and XML documents, such as BeautifulSoup, etc.
+import lxml - provides functions for parsing XML and HTML documents, such as etree, etc.
+import Pillow - provides functions for working with images, such as Image, etc.
+import PyPDF2 - provides functions for working with PDF files, such as PdfFileReader, etc.
+import openpyxl - provides functions for working with Excel files, such as load_workbook, etc.
+import matplotlib - provides functions for creating visualizations and plots, such as pyplot, etc.
+import seaborn - provides functions for creating statistical visualizations, such as heatmap, pairplot, etc.
+import numpy - provides functions for working with arrays and numerical data, such as array, mean, median, etc.
+import pandas - provides functions for working with data frames and tabular data, such as DataFrame, read_csv, etc.
+import scipy - provides functions  for scientific computing and technical computing, such as optimize, stats, etc.
+import scikit-learn - provides functions for machine learning and data mining, such as train_test   _split, RandomForestClassifier, etc.
+import tensorflow - provides functions for machine learning and deep learning, such as keras, etc.
+import keras - provides functions for building and training neural networks, such as Sequential, Dense, etc.
+import pytorch - provides functions for machine learning and deep learning, such as torch, nn, etc.
+import xgboost - provides functions for gradient boosting and machine learning, such as XGBClassifier, etc.
+import lightgbm - provides functions for gradient boosting and machine learning, such as LGBMClassifier, etc.
+import catboost - provides functions for gradient boosting and machine learning,     such as CatBoostClassifier, etc.
+import statsmodels - provides functions for statistical modeling and econometrics, such as OLS, etc.
+import networkx - provides functions for working with graphs and networks, such as Graph, etc.
+import geopandas - provides functions for working with geospatial data, such as GeoDataFrame, etc.
+import folium - provides functions for creating interactive maps, such as Map, Marker, etc.
+import plotly - provides functions for creating interactive visualizations, such as express, graph_objects, etc.
+import sellenium - provides functions for automating web browsers, such as WebDriver, etc.
+import scrapy - provides functions for web scraping and crawling, such as Spider, etc.
+import flask - provides functions for building web applications, such as Flask, etc.
+import django - provides functions for building web applications, such as Django, etc.    
+import fastapi - provides functions for building web APIs, such as FastAPI, etc.
+import bottle - provides functions for building web applications, such as Bottle, etc.
+import tornado - provides functions for building web applications and handling asynchronous networking, such as Application, etc.
+import aiohttp - provides functions for making asynchronous HTTP requests, such as ClientSession, etc.'''
+
+
+''' important modules for data science and machine learning
+import numpy - provides functions for working with arrays and numerical data, such as array, mean, median, etc.
+import pandas - provides functions for working with data frames and tabular data, such as DataFrame, read_csv, etc.
+import scipy - provides functions for scientific computing and technical computing, such as optimize, stats, etc.
+import scikit-learn - provides functions for machine learning and data mining, such as train_test_split, RandomForestClassifier, etc.
+import tensorflow - provides functions for machine learning and deep learning, such as keras, etc.
+import keras - provides functions for building and training neural networks, such as Sequential, Dense, etc.
+import pytorch - provides functions for machine learning and deep learning, such as torch, nn, etc.
+import xgboost - provides functions for gradient boosting and machine learning, such as XGBClassifier, etc.
+import lightgbm - provides functions for gradient boosting and machine learning, such as LGBMClassifier, etc. 
+import catboost - provides functions for gradient boosting and machine learning, such as CatBoostClassifier, etc.
+import statsmodels - provides functions for statistical modeling and econometrics, such as OLS, etc.
+import networkx - provides functions for working with graphs and networks, such as Graph, etc.
+import geopandas - provides functions for working with geospatial data, such as GeoDataFrame, etc.
+import folium - provides functions for creating interactive maps, such as Map, Marker, etc.
+import plotly - provides functions for creating interactive visualizations, such as express, graph_objects, etc.
+import sellenium - provides functions for automating web browsers, such as WebDriver, etc.
+import scrapy - provides functions for web scraping and crawling, such as Spider, etc.    
+import flask - provides functions for building web applications, such as Flask, etc.
+import django - provides functions for building web applications, such as Django, etc.    
+import fastapi - provides functions for building web APIs, such as FastAPI, etc.
+import bottle - provides functions for building web applications, such as Bottle, etc.
+import tornado - provides functions for building web applications and handling asynchronous networking, such as Application, etc.
+import aiohttp - provides functions for making asynchronous HTTP requests, such as ClientSession, etc.   
+import matplotlib - provides functions for creating visualizations and plots, such as pyplot, etc.'''
+
+
+''' important modules for web development
+import flask - provides functions for building web applications, such as Flask, etc.
+import django - provides functions for building web applications, such as Django, etc.    
+import fastapi - provides functions for building web APIs, such as FastAPI, etc.
+import bottle - provides functions for building web applications, such as Bottle, etc.    
+import tornado - provides functions for building web applications and handling asynchronous networking, such as Application, etc.
+import aiohttp - provides functions for making asynchronous HTTP requests, such as ClientSession, etc.
+import requests - provides functions for making HTTP requests, such as get, post, put, delete, etc.
+import beautifulsoup4 - provides functions for parsing HTML and XML documents, such as BeautifulSoup, etc.
+import lxml - provides functions for parsing XML and HTML documents, such as    etree, etc.
+import Pillow - provides functions for working with images, such as Image, etc.'
+import PyPDF2 - provides functions for working with PDF files, such as PdfFileReader, etc.    '''
+
+''' important modules for automation and scripting
+import os - provides functions for interacting with the operating system, such as file and directory manipulation.
+import sys - provides access to system-specific parameters and functions, such as command-line arguments and the Python path.
+import datetime - provides classes for manipulating dates and times.
+import time - provides functions for working with time, such as sleep and time.
+import re - provides functions for working with regular expressions.
+import collections - provides specialized container datatypes like namedtuple, deque, Counter, etc.
+import json - provides functions for working with JSON data, such as parsing and generating JSON.
+import csv - provides functions for working with CSV files, such as reading and writing CSV data.
+import urllib.request - provides functions for making HTTP requests and working with URLs.
+import subprocess - provides functions for running external commands and processes, such as run, Popen, etc.
+import webbrowser - provides functions for working with web browsers, such as open, open_new, etc.
+import smtplib - provides functions for sending email using the Simple Mail Transfer Protocol (SMTP), such as SMTP, sendmail, etc.
+import imaplib - provides functions for working with the Internet Message Access Protocol (IMAP), such as IMAP4, IMAP4_SSL
+import poplib - provides functions for working with the Post Office Protocol (POP), such as POP3, POP3_SSL, etc.
+import email - provides functions for working with email messages, such as message, parser, etc.
+import ftplib - provides functions for working with the File Transfer Protocol (FTP), such as FTP, FTP_TLS, etc.
+import paramiko - provides functions for working with the SSH protocol, such as SSHClient, SFTPClient, etc.
+import psycopg2 - provides functions for working with PostgreSQL databases, such as connect, cursor, etc.
+import mysql.connector - provides functions for working with MySQL databases, such as connect, cursor, etc.
+import sqlite3 - provides functions for working with SQLite databases, such as connect, cursor, etc.
+import redis - provides functions for working with Redis databases, such as connect, set, get, etc.
+import pymongo - provides functions for working with MongoDB databases, such as connect, database, etc.
+import sqlalchemy - provides functions for working with SQL databases, such as create_engine, sessionmaker, etc.
+import requests - provides functions for making HTTP requests, such as get, post, put, delete, etc.
+import beautifulsoup4 - provides functions for parsing HTML and XML documents, such as BeautifulSoup, etc.
+import lxml - provides functions for parsing XML and HTML documents, such as etree, etc.
+import Pillow - provides functions for working with images, such as Image, etc.
+import PyPDF2 - provides functions for working with PDF files, such as PdfFileReader,    etc.'''
+
+''' important module for all purposes
+import os - provides functions for interacting with the operating system, such as file and directory manipulation.
+import sys - provides access to system-specific parameters and functions, such as command-line arguments and the Python path.
+import datetime - provides classes for manipulating dates and times.
+import time - provides functions for working with time, such as sleep and time.
+import re - provides functions for working with regular expressions.
+import collections - provides specialized container datatypes like namedtuple, deque, Counter, etc.
+import json - provides functions for working with JSON data, such as parsing and generating JSON.
+import csv - provides functions for working with CSV files, such as reading and writing CSV data.
+import urllib.request - provides functions for making HTTP requests and working with URLs.
+import subprocess - provides functions for running external commands and processes, such as run, Popen,  etc.
+import webbrowser - provides functions for working with web browsers, such as open, open_new,  
+etc.
+import smtplib - provides functions for sending email using the Simple Mail Transfer Protocol (SMTP), such as SMTP, sendmail, etc.
+import imaplib - provides functions for working with the Internet Message Access Protocol (IMAP), such as IMAP4, IMAP4_SSL, etc.
+import poplib - provides functions for working with the Post Office Protocol (POP), such as POP3, POP3_SSL, etc.
+import email - provides functions for working with email messages, such as message, parser, etc.
+import ftplib - provides functions for working with the File Transfer Protocol (FTP), such as FTP, FTP_TLS, etc.
+import paramiko - provides functions for working with the SSH protocol, such as SSHClient, SFTPClient, etc.
+import psycopg2 - provides functions for working with PostgreSQL databases, such as connect, cursor, etc.
+import mysql.connector - provides functions for working with MySQL databases, such as connect, cursor, etc.
+import sqlite3 - provides functions for working with SQLite databases, such as connect, cursor, etc.
+import redis - provides functions for   working with Redis databases, such as connect, set, get, etc.
+import pymongo - provides functions for working with MongoDB databases, such as connect, database, etc.
+import sqlalchemy - provides functions for working with SQL databases, such as create_engine, sessionmaker, etc.
+import requests - provides functions for making HTTP requests, such as get, post, put, delete, etc.
+import beautifulsoup4 - provides functions for parsing HTML and XML documents, such as BeautifulSoup, etc.
+import lxml - provides functions for parsing XML and HTML documents, such as etree, etc.
+import Pillow - provides functions for working with images, such as Image, etc.
+import PyPDF2 - provides functions for working with PDF files, such as PdfFileReader etc.
+import openpyxl - provides functions for working with Excel files, such as load_workbook, etc.
+import matplotlib - provides functions for creating visualizations and plots, such as pyplot, etc.
+import seaborn - provides functions for creating statistical visualizations, such as heatmap, pairplot, etc.
+import numpy - provides functions for working with arrays and numerical data, such as array, mean, median, etc.
+import pandas - provides functions for working with data frames and tabular data
+     '''
+
