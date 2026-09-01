@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Code With Mahfuz | Fiverr Gig Template</title>
+  <meta name="description" content="Professional Fiverr gig template for Code With Mahfuz: Python automation and web scraping services." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-0: #0c1119;
+      --bg-1: #151b26;
+      --card: #1b2331;
+      --card-2: #20293a;
+      --accent: #ffb454;
+      --accent-2: #5dd3ff;
+      --text: #eef3ff;
+      --muted: #a8b3c7;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 20px 60px rgba(8, 12, 20, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(93, 211, 255, 0.15), transparent 45%),
+        radial-gradient(circle at 80% 10%, rgba(255, 180, 84, 0.2), transparent 40%),
+        linear-gradient(160deg, var(--bg-0), var(--bg-1));
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+      padding: 32px 0 80px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0 24px;
+    }
+
+    .brand {
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand span {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.75rem;
+      color: var(--accent-2);
+    }
+
+    .brand h1 {
+      font-family: "Fraunces", serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent), #ffdd9a);
+      color: #1c1409;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 12px 30px rgba(255, 180, 84, 0.25);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      align-items: center;
+      padding: 20px 0 40px;
+    }
+
+    .hero h2 {
+      font-family: "Fraunces", serif;
+      font-size: clamp(2.1rem, 4vw, 3.1rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .badge {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(93, 211, 255, 0.18);
+      color: var(--accent-2);
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 1px solid rgba(93, 211, 255, 0.4);
+    }
+
+    .gig-card {
+      background: linear-gradient(160deg, var(--card), var(--card-2));
+      border-radius: 20px;
+      padding: 26px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 18px;
+    }
+
+    .gig-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .gig-highlight {
+      display: grid;
+      gap: 10px;
+    }
+
+    .gig-highlight div {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(12, 17, 25, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .section {
+      padding: 40px 0;
+    }
+
+    .section-title {
+      font-family: "Fraunces", serif;
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 12px;
+    }
+
+    .card h4 {
+      font-size: 1.2rem;
+    }
+
+    .pill {
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 180, 84, 0.2);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .process-step {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+    }
+
+    .process-step span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .cta-banner {
+      margin-top: 30px;
+      padding: 26px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: linear-gradient(120deg, rgba(93, 211, 255, 0.18), rgba(255, 180, 84, 0.15));
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .cta-banner h3 {
+      font-family: "Fraunces", serif;
+      font-size: 1.6rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cta {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .gig-card {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <span>Fiverr Pro Gig</span>
+        <h1>Code With Mahfuz</h1>
+      </div>
+      <a class="cta" href="#contact">Order Your Automation</a>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h2>I build smart Python automation and data scraping so your business runs on autopilot.</h2>
+        <p>Clear communication, clean code, and fast delivery. Share your workflow or target sites, and I will turn it into a reliable Python solution.</p>
+        <div class="badges">
+          <span class="badge">Python Automation</span>
+          <span class="badge">Web Scraping</span>
+          <span class="badge">Data Delivery</span>
+        </div>
+      </div>
+      <aside class="gig-card">
+        <h3>Gig Snapshot</h3>
+        <div class="gig-highlight">
+          <div>
+            <span>Seller</span>
+            <strong>Code With Mahfuz</strong>
+          </div>
+          <div>
+            <span>Delivery</span>
+            <strong>Fast & Reliable</strong>
+          </div>
+          <div>
+            <span>Communication</span>
+            <strong>24/7 Friendly</strong>
+          </div>
+        </div>
+        <p class="list">Send your task details, target websites, or example files. I will respond with a clear plan and quick timeline.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Services I Provide</h3>
+      <div class="grid-2">
+        <article class="card">
+          <span class="pill">Service 01</span>
+          <h4>Automation with Python</h4>
+          <p class="list">Automate repetitive tasks like file processing, report generation, email workflows, and API integrations.</p>
+          <div class="list">
+            <span>Custom scripts tailored to your workflow</span>
+            <span>Clean, maintainable code with documentation</span>
+            <span>Optional scheduling and deployment support</span>
+          </div>
+        </article>
+        <article class="card">
+          <span class="pill">Service 02</span>
+          <h4>Web Scraping with Python</h4>
+          <p class="list">Extract structured data from websites, directories, e-commerce listings, or lead sources.</p>
+          <div class="list">
+            <span>CSV / Excel / JSON data delivery</span>
+            <span>Anti-blocking friendly scraping strategy</span>
+            <span>Clean data with required fields</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">Why Clients Choose Me</h3>
+      <div class="grid-2">
+        <div class="card">
+          <h4>Professional & Transparent</h4>
+          <p class="list">You get regular updates, clear timelines, and honest answers about what is possible.</p>
+        </div>
+        <div class="card">
+          <h4>Optimized for Results</h4>
+          <p class="list">Every script is tested for accuracy, speed, and reliability before delivery.</p>
+        </div>
+        <div class="card">
+          <h4>Support After Delivery</h4>
+          <p class="list">I help you run the script and offer guidance for future improvements.</p>
+        </div>
+        <div class="card">
+          <h4>Safe & Ethical Practices</h4>
+          <p class="list">I follow best practices and work only on lawful, approved data sources.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3 class="section-title">How We Work</h3>
+      <div class="process">
+        <div class="process-step">
+          <span>01</span>
+          <h4>Share Requirements</h4>
+          <p class="list">Send your goal, sample data, and any must-have features.</p>
+        </div>
+        <div class="process-step">
+          <span>02</span>
+          <h4>Build & Test</h4>
+          <p class="list">I develop the script, test it thoroughly, and keep you updated.</p>
+        </div>
+        <div class="process-step">
+          <span>03</span>
+          <h4>Deliver & Support</h4>
+          <p class="list">You receive the final files, documentation, and post-delivery help.</p>
+        </div>
+      </div>
+
+      <div class="cta-banner" id="contact">
+        <div>
+          <h3>Ready to automate your workflow?</h3>
+          <p class="list">Send a message with your task details and I will respond quickly.</p>
+        </div>
+        <a class="cta" href="#">Contact Code With Mahfuz</a>
+      </div>
+    </section>
+
+    <footer>
+      Crafted for Fiverr profile presentation · Code With Mahfuz
+    </footer>
+  </div>
+</body>
+</html>

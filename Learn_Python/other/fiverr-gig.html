@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fiverr Gig Template | Code With Mahfuz</title>
+  <meta name="description" content="One-page Fiverr gig template for Mahfuzur Rahman Chowdhury." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    :root {
+      --bg: #0f131a;
+      --paper: #141b24;
+      --card: #1a2330;
+      --ink: #f4f7ff;
+      --muted: #a7b4c9;
+      --accent: #6ee7ff;
+      --accent-2: #8cffc1;
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Chakra Petch", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(110, 231, 255, 0.08), transparent 55%),
+        radial-gradient(circle at 80% 10%, rgba(140, 255, 193, 0.08), transparent 50%),
+        var(--bg);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 40px 16px 80px;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .tagline {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.9rem;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-top: 24px;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      color: var(--accent-2);
+      margin-bottom: 8px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .inline-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .inline-list li {
+      background: rgba(110, 231, 255, 0.12);
+      border: 1px solid rgba(110, 231, 255, 0.35);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: var(--ink);
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .package {
+      background: #141f2c;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .package h3 {
+      color: var(--accent-2);
+      margin-bottom: 6px;
+      font-size: 1.05rem;
+    }
+
+    .price {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .package ul {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .package li {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, rgba(110, 231, 255, 0.2), rgba(140, 255, 193, 0.2));
+      border: 1px solid rgba(110, 231, 255, 0.35);
+      border-radius: 16px;
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .cta strong {
+      color: var(--accent-2);
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="tagline">Fiverr Gig Template · One Page</div>
+    <h1 class="title">I will do Python web scraping, automation, and shell scripting</h1>
+    <p class="subtitle">
+      This is a one‑page Fiverr gig template (not a website). Replace the text with your final Fiverr gig copy.
+      Clean scope, fast delivery, and maintainable code.
+    </p>
+
+    <section class="section">
+      <h2>Seller Info</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Name</h3>
+          <p>Mahfuzur Rahman Chowdhury</p>
+        </div>
+        <div class="card">
+          <h3>Brand</h3>
+          <p>Code With Mahfuz</p>
+        </div>
+        <div class="card">
+          <h3>Fiverr Username</h3>
+          <p>codewithmahfuz</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Services</h2>
+      <ul class="inline-list">
+        <li>Python Web Scraping</li>
+        <li>Python Automation</li>
+        <li>Shell Scripting</li>
+      </ul>
+      <div class="grid" style="margin-top: 12px;">
+        <div class="card">
+          <h3>Web Scraping</h3>
+          <p>CSV/JSON output, respectful request rate, clean parsing.</p>
+        </div>
+        <div class="card">
+          <h3>Automation</h3>
+          <p>Task automation, API workflows, file handling with logs.</p>
+        </div>
+        <div class="card">
+          <h3>Shell Scripting</h3>
+          <p>CLI scripts, cron jobs, backups, and Linux maintenance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Gig Description</h2>
+      <div class="card">
+        <p>
+          I build reliable Python scripts and shell tools that save time and reduce manual work.
+          You will get clean code, clear instructions, and quick communication.
+        </p>
+        <p style="margin-top: 10px;">
+          Special focus on ethical scraping (terms + robots.txt), automation with error handling,
+          and scripts that you can maintain easily.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Packages</h2>
+      <div class="packages">
+        <div class="package">
+          <h3>Basic</h3>
+          <div class="price">Set Price</div>
+          <ul>
+            <li>Single task or small scraper</li>
+            <li>1 data source</li>
+            <li>Basic documentation</li>
+            <li>1 revision</li>
+          </ul>
+        </div>
+        <div class="package">
+          <h3>Standard</h3>
+          <div class="price">Set Price</div>
+          <ul>
+            <li>Multi-step automation</li>
+            <li>2-3 data sources</li>
+            <li>Logging + error handling</li>
+            <li>2 revisions</li>
+          </ul>
+        </div>
+        <div class="package">
+          <h3>Premium</h3>
+          <div class="price">Set Price</div>
+          <ul>
+            <li>Full pipeline</li>
+            <li>Automation + scraping + shell</li>
+            <li>Deployment guide</li>
+            <li>3 revisions</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Note: Replace “Set Price” with your Fiverr package prices.</p>
+    </section>
+
+    <section class="section">
+      <h2>Requirements From Buyer</h2>
+      <div class="card">
+        <p>Target URL or system details</p>
+        <p>Output format: CSV / JSON / Excel / Database</p>
+        <p>Estimated volume or number of pages</p>
+        <p>Login access (only if authorized)</p>
+        <p>Delivery timeline and frequency</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Do you follow robots.txt?</h3>
+          <p>Yes, I respect site rules and legal access only.</p>
+        </div>
+        <div class="card">
+          <h3>Will I get the source code?</h3>
+          <p>Yes, full source code and setup guide included.</p>
+        </div>
+        <div class="card">
+          <h3>Can you handle dynamic pages?</h3>
+          <p>Yes, using Selenium or Playwright if needed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Call To Action</h2>
+      <div class="cta">
+        <div><strong>Ready to start?</strong> Send your requirements and I will confirm scope quickly.</div>
+        <div>Fiverr Username: <strong>codewithmahfuz</strong></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

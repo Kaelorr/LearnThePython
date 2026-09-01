@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fiverr Gig Template | Code With Mahfuz</title>
+  <meta name="description" content="Fiverr gig template for Mahfuzur Rahman Chowdhury. Services: Python web scraping, Python automation, shell scripting." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+    :root {
+      --bg-0: #05070d;
+      --bg-1: #0c1426;
+      --grid: rgba(82, 214, 255, 0.08);
+      --neon-teal: #52d6ff;
+      --neon-mint: #7dffb7;
+      --neon-amber: #ffc66b;
+      --text-main: #eaf2ff;
+      --text-dim: #9bb0c9;
+      --glass: rgba(255, 255, 255, 0.07);
+      --glass-strong: rgba(255, 255, 255, 0.14);
+      --shadow-teal: 0 0 26px rgba(82, 214, 255, 0.25);
+      --shadow-mint: 0 0 28px rgba(125, 255, 183, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Chakra Petch", "Segoe UI", sans-serif;
+      color: var(--text-main);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(82, 214, 255, 0.12), transparent 55%),
+        radial-gradient(circle at 80% 20%, rgba(125, 255, 183, 0.12), transparent 50%),
+        linear-gradient(180deg, var(--bg-0), var(--bg-1));
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .scanlines::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.015),
+        rgba(255, 255, 255, 0.015) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+      mix-blend-mode: screen;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .grid {
+      position: fixed;
+      inset: -25% 0 0 0;
+      background:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 80px 80px;
+      transform: perspective(900px) rotateX(65deg);
+      transform-origin: top;
+      opacity: 0.4;
+      z-index: -2;
+      animation: gridMove 18s linear infinite;
+    }
+
+    @keyframes gridMove {
+      from { background-position: 0 0; }
+      to { background-position: 0 280px; }
+    }
+
+    header {
+      padding: 28px 8vw 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: "JetBrains Mono", monospace;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      background: linear-gradient(90deg, var(--neon-mint), var(--neon-teal));
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 20px rgba(125, 255, 183, 0.35);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    .logo::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--neon-mint), rgba(125, 255, 183, 0));
+      box-shadow: 0 0 12px rgba(125, 255, 183, 0.4);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dim);
+      margin-left: 22px;
+      font-size: 0.92rem;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: var(--neon-mint);
+    }
+
+    .hero {
+      padding: 90px 8vw 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      text-shadow: var(--shadow-mint);
+    }
+
+    .identity {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .identity .alias {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.95rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--neon-teal);
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(82, 214, 255, 0.45);
+      background: rgba(82, 214, 255, 0.12);
+      box-shadow: 0 0 18px rgba(82, 214, 255, 0.25);
+      width: fit-content;
+    }
+
+    .identity .name {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #f7fbff;
+      text-shadow: 0 0 20px rgba(125, 255, 183, 0.28);
+      position: relative;
+      display: inline-block;
+    }
+
+    @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+      .identity .name {
+        background: linear-gradient(90deg, #f7fbff 0%, var(--neon-mint) 70%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 22px rgba(125, 255, 183, 0.3);
+      }
+    }
+
+    .identity .name::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 160px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--neon-mint), rgba(125, 255, 183, 0));
+      box-shadow: 0 0 12px rgba(125, 255, 183, 0.4);
+    }
+
+    .hero p {
+      color: var(--text-dim);
+      font-size: 1.02rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn,
+    .btn-link {
+      border: none;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.6px;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--neon-mint), var(--neon-teal));
+      color: #07101a;
+      font-weight: 600;
+      box-shadow: var(--shadow-mint);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn.secondary,
+    .btn-link.secondary {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: none;
+    }
+
+    .btn:hover,
+    .btn-link:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 0 30px rgba(125, 255, 183, 0.45);
+    }
+
+    .hero-panel {
+      background: linear-gradient(135deg, rgba(82, 214, 255, 0.08), rgba(125, 255, 183, 0.06));
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: -60% -40% auto auto;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(82, 214, 255, 0.35), transparent 70%);
+      filter: blur(18px);
+      animation: glowPulse 7s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 0.55; }
+    }
+
+    .panel-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--neon-amber);
+      margin-bottom: 12px;
+    }
+
+    .panel-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .metric {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(5, 6, 11, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .metric h3 {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.05rem;
+      color: var(--neon-mint);
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    .section {
+      padding: 70px 8vw;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      color: var(--neon-teal);
+    }
+
+    .section-sub {
+      color: var(--text-dim);
+      margin-bottom: 26px;
+      max-width: 720px;
+      line-height: 1.7;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 18px;
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+      transform: translateX(-120%);
+      transition: transform 0.6s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 35px rgba(82, 214, 255, 0.35);
+    }
+
+    .card:hover::after {
+      transform: translateX(120%);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      color: var(--neon-mint);
+    }
+
+    .card p {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      background: rgba(82, 214, 255, 0.12);
+      border: 1px solid rgba(82, 214, 255, 0.3);
+      color: var(--text-main);
+    }
+
+    .meta {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--neon-amber);
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .package-card {
+      padding: 24px;
+      border-radius: 20px;
+      background: rgba(8, 12, 22, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .package-card.featured {
+      border: 1px solid rgba(125, 255, 183, 0.5);
+      box-shadow: 0 0 32px rgba(125, 255, 183, 0.25);
+    }
+
+    .package-title {
+      font-size: 1.1rem;
+      color: var(--neon-mint);
+      margin-bottom: 8px;
+    }
+
+    .package-price {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1.4rem;
+      color: #f7fbff;
+      margin-bottom: 12px;
+    }
+
+    .package-list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .package-list li {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .note {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.55);
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .faq {
+      display: grid;
+      gap: 14px;
+    }
+
+    .faq details {
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 14px 18px;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .faq p {
+      margin-top: 10px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .requirements {
+      display: grid;
+      gap: 12px;
+      color: var(--text-dim);
+      font-size: 0.95rem;
+    }
+
+    .requirements span {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(82, 214, 255, 0.35);
+      background: rgba(82, 214, 255, 0.12);
+      font-size: 0.85rem;
+      color: var(--text-main);
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    footer {
+      padding: 28px 8vw 40px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.85rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 16px;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .logo {
+        background: none;
+        color: #f7fbff;
+        -webkit-text-fill-color: #f7fbff;
+        text-shadow: 0 0 18px rgba(125, 255, 183, 0.4);
+      }
+
+      .identity .name {
+        background: none;
+        color: #f7fbff;
+        -webkit-text-fill-color: #f7fbff;
+        text-shadow: 0 0 20px rgba(125, 255, 183, 0.35);
+      }
+
+      .identity .alias {
+        color: #f7fbff;
+        border-color: rgba(82, 214, 255, 0.7);
+        background: rgba(82, 214, 255, 0.2);
+        text-shadow: 0 0 12px rgba(82, 214, 255, 0.45);
+      }
+    }
+  </style>
+</head>
+<body class="scanlines">
+  <div class="grid" aria-hidden="true"></div>
+
+  <header>
+    <div class="logo">Code With Mahfuz</div>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#skills">Skills</a>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="overview">
+    <div>
+      <h1>I will build reliable Python automation, web scraping, and shell scripts</h1>
+      <div class="identity">
+        <span class="alias">code with mahfuz</span>
+        <span class="name">Mahfuzur Rahman Chowdhury</span>
+      </div>
+      <p>
+        Fiverr gig-ready template focused on clean, documented code and predictable delivery.
+        I create custom scripts for data collection, workflow automation, and Linux/Unix shell tasks.
+      </p>
+      <p class="note">Clear scope · Clean code · Respectful scraping (site rules + robots.txt).</p>
+      <div class="cta-row">
+        <a class="btn-link" href="#packages">See Packages</a>
+        <a class="btn-link secondary" href="#contact">Message Me</a>
+      </div>
+    </div>
+
+    <div class="hero-panel" id="glow-panel">
+      <div class="panel-title">Gig Snapshot</div>
+      <p>Quick turnaround, clear communication, and scripts you can maintain.</p>
+      <div class="panel-metrics">
+        <div class="metric">
+          <h3>24-72h</h3>
+          <span>Typical Delivery</span>
+        </div>
+        <div class="metric">
+          <h3>2+</h3>
+          <span>Revisions</span>
+        </div>
+        <div class="metric">
+          <h3>Python</h3>
+          <span>BeautifulSoup · Selenium</span>
+        </div>
+        <div class="metric">
+          <h3>Shell</h3>
+          <span>Bash · Cron · CLI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-title">Core Skills</div>
+    <p class="section-sub">
+      Three focused services that cover data extraction, automation, and terminal workflows.
+    </p>
+    <div class="chips">
+      <div class="chip">Python Web Scraping</div>
+      <div class="chip">Python Automation</div>
+      <div class="chip">Shell Scripting</div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="section-title">Services</div>
+    <p class="section-sub">
+      Pick one service or combine them into a single automation pipeline.
+    </p>
+    <div class="feature-grid">
+      <div class="card reveal">
+        <span class="meta">Data Collection</span>
+        <h3>Python Web Scraping</h3>
+        <p>Scrape structured data into CSV/JSON with polite request pacing and clean parsing.</p>
+      </div>
+      <div class="card reveal">
+        <span class="meta">Workflow</span>
+        <h3>Python Automation</h3>
+        <p>Automate repetitive tasks, reports, file handling, and API workflows with clear logs.</p>
+      </div>
+      <div class="card reveal">
+        <span class="meta">Systems</span>
+        <h3>Shell Scripting</h3>
+        <p>Build Bash scripts for backups, deployments, cron jobs, and daily maintenance tasks.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="packages">
+    <div class="section-title">Gig Packages</div>
+    <p class="section-sub">
+      Choose a package or request a custom quote. Pricing is flexible based on complexity.
+    </p>
+    <div class="package-grid">
+      <div class="package-card reveal">
+        <div class="meta">Basic</div>
+        <div class="package-title">Starter Script</div>
+        <div class="package-price">Set Your Price</div>
+        <ul class="package-list">
+          <li>Single task or small scraper</li>
+          <li>Up to 1 data source</li>
+          <li>Basic documentation</li>
+          <li>1 revision</li>
+        </ul>
+        <a class="btn-link" href="#contact">Order Basic</a>
+      </div>
+      <div class="package-card featured reveal">
+        <div class="meta">Standard</div>
+        <div class="package-title">Automation Workflow</div>
+        <div class="package-price">Set Your Price</div>
+        <ul class="package-list">
+          <li>Multi-step automation</li>
+          <li>2-3 data sources or tasks</li>
+          <li>Logging + error handling</li>
+          <li>2 revisions</li>
+        </ul>
+        <a class="btn-link" href="#contact">Order Standard</a>
+      </div>
+      <div class="package-card reveal">
+        <div class="meta">Premium</div>
+        <div class="package-title">Full Pipeline</div>
+        <div class="package-price">Set Your Price</div>
+        <ul class="package-list">
+          <li>End-to-end pipeline</li>
+          <li>Automation + scraping + shell</li>
+          <li>Deployment guide</li>
+          <li>3 revisions</li>
+        </ul>
+        <a class="btn-link" href="#contact">Order Premium</a>
+      </div>
+    </div>
+    <p class="note">Tip: Replace “Set Your Price” with your Fiverr package prices.</p>
+  </section>
+
+  <section class="section" id="process">
+    <div class="section-title">How It Works</div>
+    <p class="section-sub">A clear, repeatable process so you know what to expect.</p>
+    <div class="feature-grid">
+      <div class="card reveal">
+        <span class="meta">Step 1</span>
+        <h3>Share Requirements</h3>
+        <p>Send target sites, task details, and desired output format.</p>
+      </div>
+      <div class="card reveal">
+        <span class="meta">Step 2</span>
+        <h3>Confirm Scope</h3>
+        <p>I confirm complexity, timeline, and tools before we start.</p>
+      </div>
+      <div class="card reveal">
+        <span class="meta">Step 3</span>
+        <h3>Build & Test</h3>
+        <p>Deliver clean code with logs, checks, and sample output.</p>
+      </div>
+      <div class="card reveal">
+        <span class="meta">Step 4</span>
+        <h3>Delivery + Revisions</h3>
+        <p>You review, request changes, and get finalized scripts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="requirements">
+    <div class="section-title">Gig Requirements</div>
+    <p class="section-sub">Help me start fast by sharing the essentials below.</p>
+    <div class="requirements">
+      <div><span>Target site or system:</span> URLs, pages, or workflow details.</div>
+      <div><span>Output format:</span> CSV, JSON, Excel, database, or API.</div>
+      <div><span>Volume:</span> Estimated number of pages/items.</div>
+      <div><span>Login info:</span> Only if authorized and needed.</div>
+      <div><span>Schedule:</span> One-time or recurring run.</div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="section-title">FAQ</div>
+    <p class="section-sub">Common questions buyers ask before ordering.</p>
+    <div class="faq">
+      <details class="reveal">
+        <summary>Do you follow website terms and robots.txt?</summary>
+        <p>Yes. I only scrape within allowed access and at respectful request rates.</p>
+      </details>
+      <details class="reveal">
+        <summary>Will I get the source code?</summary>
+        <p>Yes, you receive the full script with comments and setup instructions.</p>
+      </details>
+      <details class="reveal">
+        <summary>Can you handle login or dynamic pages?</summary>
+        <p>Yes, Selenium or Playwright can be used for dynamic content if needed.</p>
+      </details>
+      <details class="reveal">
+        <summary>Do you offer post-delivery support?</summary>
+        <p>Yes, I provide short support for setup and usage questions.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-title">Contact</div>
+    <p class="section-sub">Ready to start? Message me on Fiverr with your requirements.</p>
+    <div class="feature-grid">
+      <div class="card reveal">
+        <h3>Fiverr Username</h3>
+        <p>codewithmahfuz</p>
+      </div>
+      <div class="card reveal">
+        <h3>Brand</h3>
+        <p>Code With Mahfuz</p>
+      </div>
+      <div class="card reveal">
+        <h3>Status</h3>
+        <p><span class="status-pill">Available for Work</span></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Code With Mahfuz · Fiverr gig template</footer>
+
+  <script>
+    const revealElements = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    revealElements.forEach((el) => observer.observe(el));
+
+    const glowPanel = document.getElementById("glow-panel");
+    glowPanel.addEventListener("pointermove", (event) => {
+      const rect = glowPanel.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+      glowPanel.style.transform = `rotateX(${(0.5 - y) * 6}deg) rotateY(${(x - 0.5) * 6}deg)`;
+    });
+
+    glowPanel.addEventListener("pointerleave", () => {
+      glowPanel.style.transform = "rotateX(0deg) rotateY(0deg)";
+    });
+  </script>
+</body>
+</html>

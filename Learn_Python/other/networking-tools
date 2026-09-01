@@ -1,0 +1,149 @@
+#!/bin/bash
+
+DEFAULT_NET="${TARGET_NET:-192.168.1.0/24}"
+DEFAULT_HOST="${TARGET_HOST:-192.168.1.1}"
+
+have_cmd() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+run_cmd() {
+  local cmd="$1"
+  shift
+  if have_cmd "$cmd"; then
+    "$cmd" "$@"
+  else
+    echo "Missing tool: $cmd"
+  fi
+}
+
+show_status() {
+  echo "Tool status:"
+  for t in ip ss ifconfig netstat nmap burpsuite wireshark tcpdump nc ping traceroute curl dig whois iperf3 mtr; do
+    if have_cmd "$t"; then
+      printf "  %-12s: OK\n" "$t"
+    else
+      printf "  %-12s: MISSING\n" "$t"
+    fi
+  done
+}
+
+print_install_cmd() {
+  echo "Debian/Ubuntu/Kali one-line install:"
+  echo "sudo apt-get update && sudo apt-get install -y iproute2 net-tools nmap wireshark tcpdump netcat-openbsd traceroute curl dnsutils whois iperf3 mtr-tiny"
+}
+
+install_basics() {
+  if have_cmd apt-get; then
+    echo "Installing basic networking/security tools (Debian/Ubuntu/Kali)..."
+    sudo apt-get update
+    sudo apt-get install -y iproute2 net-tools nmap wireshark tcpdump netcat-openbsd traceroute curl dnsutils whois iperf3 mtr-tiny
+  else
+    echo "apt-get not found. Use your distro's package manager."
+    print_install_cmd
+  fi
+}
+
+while true; do
+  echo "Welcome to the Networking Tools Menu"
+  echo "Default network: $DEFAULT_NET"
+  echo "Default host:    $DEFAULT_HOST"
+  echo "Please select an option:"
+  echo "1) Display IP configuration"
+  echo "2) Display routing table"
+  echo "3) Display active network connections"
+  echo "4) nmap ping scan (default network)"
+  echo "5) Exit"
+  echo "6) burpsuite"
+  echo "7) wireshark"
+  echo "8) tcpdump"
+  echo "9) netcat"
+  echo "10) ping (default host)"
+  echo "11) traceroute (default host)"
+  echo "12) Show one-line install command (Debian/Ubuntu/Kali)"
+  echo "13) Install basic tools now (Debian/Ubuntu/Kali)"
+  echo "14) Show tool status"
+  read -r -p "Enter your choice: " choice
+
+  case "$choice" in
+    1)
+      echo "IP Configuration:"
+      if have_cmd ip; then
+        ip -br addr
+      else
+        run_cmd ifconfig
+      fi
+      ;;
+    2)
+      echo "Routing Table:"
+      if have_cmd ip; then
+        ip route
+      else
+        run_cmd netstat -rn
+      fi
+      ;;
+    3)
+      echo "Active Network Connections:"
+      if have_cmd ss; then
+        ss -tuln
+      else
+        run_cmd netstat -tuln
+      fi
+      ;;
+    4)
+      echo "nmap ping scan: $DEFAULT_NET"
+      run_cmd nmap -sn "$DEFAULT_NET"
+      ;;
+    5|q|Q)
+      echo "Exiting..."
+      exit 0
+      ;;
+    6)
+      echo "Starting Burp Suite..."
+      run_cmd burpsuite
+      ;;
+    7)
+      echo "Starting Wireshark..."
+      run_cmd wireshark
+      ;;
+    8)
+      echo "Starting tcpdump..."
+      if have_cmd tcpdump; then
+        if [ "${EUID:-0}" -ne 0 ]; then
+          echo "tcpdump usually needs sudo."
+          sudo tcpdump -n
+        else
+          tcpdump -n
+        fi
+      else
+        echo "Missing tool: tcpdump"
+      fi
+      ;;
+    9)
+      echo "Starting netcat..."
+      run_cmd nc
+      ;;
+    10)
+      echo "Pinging default host..."
+      run_cmd ping -c 4 "$DEFAULT_HOST"
+      ;;
+    11)
+      echo "Running traceroute..."
+      run_cmd traceroute "$DEFAULT_HOST"
+      ;;
+    12)
+      print_install_cmd
+      ;;
+    13)
+      install_basics
+      ;;
+    14)
+      show_status
+      ;;
+    *)
+      echo "Invalid choice"
+      ;;
+  esac
+
+  echo
+done
